@@ -1,7 +1,6 @@
 # Step 1: Create a new worksheet and add the new script 
 # Step 2: Copy and paste the following code
 
-
 function myFunction() {
   var ss=SpreadsheetApp.getActiveSpreadsheet();
   var s=ss.getActiveSheet();
@@ -16,5 +15,6 @@ function myFunction() {
   }
   s.getRange(c.getRow(),c.getColumn(),names.length).setFormulas(names);
 }
+
 
 # Step 3: Excute and all the share link will appear in the worksheet
