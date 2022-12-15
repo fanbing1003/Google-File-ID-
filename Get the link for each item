@@ -1,0 +1,20 @@
+# Step 1: Create a new worksheet and add the new script 
+# Step 2: Copy and paste the following code
+
+
+function myFunction() {
+  var ss=SpreadsheetApp.getActiveSpreadsheet();
+  var s=ss.getActiveSheet();
+  var c=s.getActiveCell();
+  var fldr=DriveApp.getFolderById("1DmhPsfme3Jty1VD1qHMEPnJPaOxS8wKs");
+  var files=fldr.getFiles();
+  var names=[],f,str;
+  while (files.hasNext()) {
+    f=files.next();
+    str='=hyperlink("' + f.getUrl() + '","' + f.getName() + '")';
+    names.push([str]);
+  }
+  s.getRange(c.getRow(),c.getColumn(),names.length).setFormulas(names);
+}
+
+# Step 3: Excute and all the share link will appear in the worksheet
